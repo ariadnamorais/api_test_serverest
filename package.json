@@ -1,0 +1,16 @@
+{
+  "name": "test_api_serverest",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ariadna Morais",
+  "license": "MIT",
+  "devDependencies": {
+    "@bahmutov/cy-api": "^2.2.1",
+    "@faker-js/faker": "^7.6.0",
+    "cypress": "^9.3.1"
+  }
+}
