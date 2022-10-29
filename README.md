@@ -1,5 +1,7 @@
 <h1 align="center">💻 Testes Automatizados Api 💻</h1>
+
 [![Badge ServeRest](https://img.shields.io/badge/API-ServeRest-green)](https://github.com/ServeRest/ServeRest/)
+
 [![Generic badge](https://img.shields.io/badge/GitHubActions-blue.svg)](https://github.com/ariadnamorais/api_test_serverest/actions/workflows/workflow-cypress.yml)
 [![Generic badge](https://img.shields.io/badge/CypressDashboard-blue.svg)](https://dashboard.cypress.io/projects/h64yoh)
 
