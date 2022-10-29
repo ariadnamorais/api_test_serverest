@@ -7,42 +7,9 @@ const postProdutos = require('../produtos/requests/postProdutos')
 const postCarrinhos = require('../carrinho/requests/postCarrinhos')
 const getProdutos = require('../produtos/requests/getProdutosId')
 
-describe('DELETE /usuarios', function () {
+describe('POST /carrinhos', function () {
 
     context('Sucesso', function () {
-
-        before('Prepara DB', function () {
-            const email = faker.internet.email()
-            cy.postUsuarios('Antonio', email, '123124', 'true')
-                .then(function (response) {
-                    expect(response.status).to.eql(201)
-                    Cypress.env('_id', response.body._id)
-                })
-        })
-
-        it('Deleta usuário', function () {
-            let _id = Cypress.env('_id')
-            cy.deleteUsuarios(_id)
-                .then(function (response) {
-                    expect(response.status).to.eql(200)
-                    expect(response.body).to.have.property('message', 'Registro excluído com sucesso')
-                })
-        })
-    })
-
-    context('Falha', function () {
-
-        it('Id incorreto', function () {
-            cy.deleteUsuarios(987)
-                .then(function (response) {
-                    expect(response.status).to.eql(200)
-                    expect(response.body).to.have.property('message', 'Nenhum registro excluído')
-                })
-        })
-    })
-
-    context('Falha - Não é permitido excluir usuário com carrinho cadastrado', function () {
-
         const email = faker.internet.email()
 
         it('Cadastra usuário', function () {
@@ -100,13 +67,20 @@ describe('DELETE /usuarios', function () {
                 })
         })
 
-        it('Id incorreto', function () {
-            const _id = Cypress.env('_id')
-            cy.deleteUsuarios(_id)
+        it('Valida quantidade dos produtos', function () {
+            const idProd1 = Cypress.env('idProd1')
+            const idProd2 = Cypress.env('idProd2')
+            cy.getProdutos(idProd1)
                 .then(function (response) {
-                    expect(response.status).to.eql(400)
-                    expect(response.body).to.have.property('message', 'Não é permitido excluir usuário com carrinho cadastrado')
+                    expect(response.status).to.eql(200)
+                    expect(response.body).to.have.property('quantidade', 38)
+                })
+            cy.getProdutos(idProd2)
+                .then(function (response) {
+                    expect(response.status).to.eql(200)
+                    expect(response.body).to.have.property('quantidade', 17)
                 })
         })
+
     })
 })

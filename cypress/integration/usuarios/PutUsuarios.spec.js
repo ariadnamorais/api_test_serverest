@@ -23,7 +23,7 @@ describe('PUT /usuarios', function () {
                 })
         })
 
-        it('Editar usuário', function () {
+        it('Edita usuário', function () {
 
             const _id = Cypress.env('_id')
             const putnome = 'Put Email'

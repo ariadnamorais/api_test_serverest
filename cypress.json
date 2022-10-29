@@ -1,4 +1,5 @@
 {
-    "baseUrl":"https://serverest.dev",
-    "pluginsFle": false
+  "baseUrl": "https://serverest.dev",
+  "pluginsFle": false,
+  "projectId": "h64yoh"
 }

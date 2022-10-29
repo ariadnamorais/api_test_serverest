@@ -11,7 +11,6 @@ describe('GET /usuarios', function () {
         const nome = 'Antonio Rodrigues Santos'
         const senha = 'antoniosantos@123124'
         const admin = 'true'
-        const _id = Cypress.env('_id')
 
         before('Prepara DB', function () {
             cy.postUsuarios(nome, email, senha, admin)
@@ -21,15 +20,7 @@ describe('GET /usuarios', function () {
                 })
         })
 
-        it('Buscar usuário | Id', function () {
-            cy.getUsuarios('_id', _id)
-                .then(function (response) {
-                    expect(response.status).to.eql(200)
-                    expect(response.body.usuarios[0]).to.have.property('_id', _id)
-                })
-        })
-
-        it('Buscar usuário | Email', function () {
+        it('Busca usuário | Email', function () {
             cy.getUsuarios('email', email)
                 .then(function (response) {
                     expect(response.status).to.eql(200)
@@ -37,7 +28,7 @@ describe('GET /usuarios', function () {
                 })
         })
 
-        it('Buscar usuário | Nome', function () {
+        it('Busca usuário | Nome', function () {
             cy.getUsuarios('nome', nome)
                 .then(function (response) {
                     expect(response.status).to.eql(200)
@@ -45,7 +36,7 @@ describe('GET /usuarios', function () {
                 })
         })
 
-        it('Buscar usuário | Senha', function () {
+        it('Busca usuário | Senha', function () {
             cy.getUsuarios('password', senha)
                 .then(function (response) {
                     expect(response.status).to.eql(200)
@@ -53,7 +44,13 @@ describe('GET /usuarios', function () {
                 })
         })
 
-        after('Exclui usuario', function () {
+        it('Busca usuário | Id', function () {
+            const _id = Cypress.env('_id')
+            cy.getUsuarios('_id', _id)
+                .then(function (response) {
+                    expect(response.status).to.eql(200)
+                    expect(response.body.usuarios[0]).to.have.property('_id', _id)
+                })
             cy.deleteUsuarios(_id)
                 .then(function (response) {
                     expect(response.status).to.eql(200)
