@@ -50,6 +50,8 @@ $ npx cypress run
 
 <h1 align="center">Executar CI com git actions</h1>
 
+//Obs.: Além do método a seguir, ao fazer push no código, o workflow é executado.
+
 1. Clique aqui: [![Generic badge](https://img.shields.io/badge/GitHubActions-blue.svg)](https://github.com/ariadnamorais/api_test_serverest/actions/runs/3353072928)
 2. Clique no Job: "ui-chrome-tests" 
 <img src="https://user-images.githubusercontent.com/49946466/195726551-6803482b-ad3b-4eb8-b3f3-1bb0a75c0650.png" align="center" alt="drawing" width="500"/>
