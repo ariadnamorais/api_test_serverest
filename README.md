@@ -9,6 +9,11 @@
 [![Generic badge](https://img.shields.io/badge/JavaScript--blue.svg)](https://devdocs.io/javascript/)
 [![Generic badge](https://img.shields.io/badge/Node-v16.13.0-blue.svg)](https://www.npmjs.com/package/node)
 
+<h1 align="center">Documentação</h1>
+
+- A request de cada spec está em: /cypress/integration/{funcionalidade}/requests
+
+- Motivo para usar cypress em testes de API: O principal motivo é a possibilidade de usar Cypress em testes de front e de back. Desta forma facilita a equipe de QA a iniciar e manter o projeto, por utilizar o mesmo framework.
 
 <h1 align="center">Pré-requisitos</h1>
 
